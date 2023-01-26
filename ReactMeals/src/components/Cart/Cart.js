@@ -12,17 +12,17 @@ function Cart(props) {
     const hasItems = cartContext.items.length > 0;
 
     function cartItemRemoveHandler(itemId) {
-
+        cartContext.removeItem(itemId);
     }
 
     function cartItemAddHandler(item) {
-
+        cartContext.addItem({ ...item, amount: 1 })
     }
 
     const cartItems = (
         <ul className={styles['cart-items']}>
             {cartContext.items.map((item) => (
-                <CartItem 
+                <CartItem
                     key={item.id}
                     name={item.name}
                     amount={item.amount}
